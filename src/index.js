@@ -8,6 +8,10 @@ app.get('/message', (request, response) => {
   response.json(messages)
 })
 
+app.get('*', (request, response) => {
+  response.status(404).send(`Route ${request.path} not found`)
+})
+
 app.listen(port, () => {
   console.log(`Server started on 'http://localhost:${port}`)
 })
